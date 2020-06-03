@@ -1,55 +1,63 @@
 function populateUFs() {
   const ufSelect = document.querySelector('select[name=uf]');
 
-  //chamar a lista do link e receber seus dados
   fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
-    //converter esse json
     .then(res => res.json())
-    //minha função para pegar cada estado e colocar como nova option
     .then(states => {
-
       for (const state of states) {
-        ufSelect.innerHTML += `<option value="${state.id}">${state.nome}</option>`
+        ufSelect.innerHTML += `<option value='${state.id}'>${state.nome}</option>`;
       }
-      //pega os valores do objeto estado e sua propriedade nome
-      //fiz um loop pra pegar cada objeto individualmente pelo seu nome
 
     })
 }
 
-populateUFs()
+populateUFs();
 
 
-function getCities(event) {
+function changeCities(event) {
   const citySelect = document.querySelector('select[name=city]');
-  
+  const stateInput = document.querySelector('input[name=state]');
+
+  const indexOfSelectedState = event.target.selectedIndex;
+  stateInput.value = event.target.options[indexOfSelectedState].text  
 
   const ufValue = event.target.value;
+  const url = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${ufValue}/municipios`;
 
-// === ESSA PARTE CONSOME MUUUITA MEMÓRIA, SÓ PRA TROCAR A URL DO SITE ===
-// const stateInput = document.querySelector('input[name=state]');
-//   const indexOfSelectedState = event.target.selectedIndex;
-//   stateInput.value = event.target.options[indexOfSelectedState].text;
-// === ALTO CONSUMO DE MEMÓRIA ===
-
-  const url = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${ufValue}/distritos`;
+  citySelect.innerHTML = '';
+  citySelect.disabled = true;
 
   fetch(url)
     .then(res => res.json())
     .then(cities => {
-
       for (const city of cities) {
-        citySelect.innerHTML += `<option value="${city.id}">${city.nome}</option>`
+        citySelect.innerHTML += `<option value='${city.nome}'>${city.nome}</option>`;
+        
+        citySelect.disabled = false;
       }
-
-      citySelect.disabled = false;
     })
-
 }
 
-//serve só pra sempre que eu mudar o estado, o consolem me notificar
-//useless
 document
-  .querySelector('select[name=uf')
-  .addEventListener('change', getCities);
-  
+  .querySelector('select[name=uf]')
+  .addEventListener('change', changeCities);
+
+
+//itens de coleta
+const itemsToCollect = document.querySelectorAll('.itens-grid li');
+
+for (const item of itemsToCollect) {
+  item.addEventListener('click', handleSelectedItem);
+}
+
+function handleSelectedItem(event) {
+  // event.target é o evento que ocorreu e o seu alvo, que no caso é o evento de click em um Li especifico
+  const itemLi = event.target;
+
+  //removendo ou adicionando um classe a um item
+  itemLi.classList.toggle('selected');
+
+
+  //pegando o id de cada item pelo seu dataX
+  const itemId = itemLi.dataset.id;
+}
