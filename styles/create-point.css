@@ -1,0 +1,41 @@
+#page-create-point {
+  width: 90%;
+  max-width: 1100px;
+
+  margin: 0 auto;
+}
+
+#page-create-point header {
+  margin-top: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#page-create-point header a {
+  color: var(--title-color);
+  font-weight: bold;
+
+  display: flex;
+  align-items: center;
+}
+
+#page-create-point header a span {
+  background: url(/images/arrow-left.svg) no-repeat;
+
+  height: 24px;
+  width: 20px;
+  margin-right: 16px;
+}
+
+form {
+  background: #fff;
+  
+  margin-top: 80px;
+  padding: 64px;
+
+  border-radius: 8px;
+
+  max-width: 730px;
+}
