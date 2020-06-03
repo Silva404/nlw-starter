@@ -64,20 +64,20 @@ function populateUFs() {
     .then(res => res.json())
     .then(states => {
       for (const state of states) {
-        ufSelect.innerHTML += `<option value='${state.id}'>${state.nome}</option>`
+        ufSelect.innerHTML += `<option value='${state.id}'>${state.nome}</option>`;
       }
 
     })
 }
 
-populateUFs()
+populateUFs();
 
 
 function changeCities() {
   const citySelect = document.querySelector('select[name=city]');
 
   const ufValue = event.target.value;
-  const url = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${ufValue}/municipios`
+  const url = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${ufValue}/municipios`;
 
   fetch(url)
     .then(res => res.json())
@@ -89,7 +89,6 @@ function changeCities() {
       }
     })
 }
-
 
 document
   .querySelector('select[name=uf]')
