@@ -61,6 +61,8 @@ function handleSelectedItem(event) {
   const itemId = itemLi.dataset.id;
 
 
+  
+  //verificar quais tems selecionados e pegar cada um
   // const alreadySelected = selectedItems.findIndex(item => {
   //   const itemFound = item == itemId;
   //   return itemFound;
@@ -68,7 +70,13 @@ function handleSelectedItem(event) {
 
   const alreadySelected = selectedItems.findIndex( item => item == itemId );
 
-  //verificar quais tems selecionados e pegar cada um
+  console.log(alreadySelected);
+  
 
   //se já estiver selecionado, tirar da seleção
+  if (alreadySelected >= 0) {
+    const filteredItems = selectedItems.filter( item => {
+      
+    })
+  }
 }
