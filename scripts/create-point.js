@@ -50,7 +50,10 @@ for (const item of itemsToCollect) {
   item.addEventListener('click', handleSelectedItem);
 }
 
-let selectedItems = [1, 2, 3, 4, 5, 6];
+//atualizar o campo escondido
+const collecetdItems = document.querySelector('input[name=items]');
+
+let selectedItems = [];
 
 function handleSelectedItem(event) {
   // event.target é o evento que ocorreu e o seu alvo, que no caso é o evento de click em um Li especifico
@@ -61,22 +64,23 @@ function handleSelectedItem(event) {
   const itemId = itemLi.dataset.id;
 
 
-  
   //verificar quais tems selecionados e pegar cada um
-  // const alreadySelected = selectedItems.findIndex(item => {
-  //   const itemFound = item == itemId;
-  //   return itemFound;
-  // })
-
-  const alreadySelected = selectedItems.findIndex( item => item == itemId );
-
-  console.log(alreadySelected);
-  
+  const alreadySelected = selectedItems.findIndex(item => {
+    const itemFound = item == itemId
+    return itemFound
+  });
 
   //se já estiver selecionado, tirar da seleção
   if (alreadySelected >= 0) {
-    const filteredItems = selectedItems.filter( item => {
-      
+    //tirar da seleção
+    const filteredItems = selectedItems.filter(item => {
+      const itemIsDifferent = item != itemId
+      return itemIsDifferent
     })
+
+    selectedItems = filteredItems;
+  } else {
+    selectedItems.push(itemId);
   }
-}
+  collecetdItems.value = selectedItems;
+} //reassistir dos 35 - 54min;
