@@ -1,0 +1,23 @@
+{
+  "name": "nlw-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Silva404/nlw-starter.git"
+  },
+  "keywords": [],
+  "author": "Breno Silva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Silva404/nlw-starter/issues"
+  },
+  "homepage": "https://github.com/Silva404/nlw-starter#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
