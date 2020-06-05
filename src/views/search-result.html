@@ -14,12 +14,8 @@
 
 <body>
   <section id="page-search-results">
-    <header>
-      <img src="/images/logo.svg" alt="logomarca">
-      <a href="/">
-        <span></span>
-        Voltar para home</a>
-    </header>
+
+    {% include 'partials/back-home.html'%}
 
     <main>
       <h4>
@@ -29,7 +25,9 @@
       <div class="cards">
 
         <div class="card">
-          <img src="https://images.unsplash.com/photo-1542739674-b449a8938b59?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" alt="Colectoria">
+          <img
+            src="https://images.unsplash.com/photo-1542739674-b449a8938b59?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"
+            alt="Colectoria">
           <h1>Colectoria</h1>
           <h3>Resíduos Eletrônicos, Lâmpadas</h3>
           <p>
@@ -40,7 +38,9 @@
         </div>
 
         <div class="card">
-          <img src="https://images.unsplash.com/photo-1558583055-d7ac00b1adca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80" alt="Papersider">
+          <img
+            src="https://images.unsplash.com/photo-1558583055-d7ac00b1adca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80"
+            alt="Papersider">
           <h1>Papersider</h1>
           <h3>Papéis e Papelão</h3>
           <p>
@@ -52,9 +52,9 @@
       </div>
 
     </main>
-    
 
-      
+
+
   </section>
 
   <script src="/scripts/create-point.js"></script>

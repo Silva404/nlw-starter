@@ -14,12 +14,9 @@
 
 <body>
   <section id="page-create-point">
-    <header>
-      <img src="/images/logo.svg" alt="logomarca">
-      <a href="/">
-        <span></span>
-        Voltar para home</a>
-    </header>
+
+    <!-- template engine para massificar um html repetido -->
+    {% include 'partials/back-home.html'%}
 
     <form action="">
 
@@ -79,7 +76,7 @@
             <span>Lampadas</span>
           </li>
 
-          <li data-id="2" >
+          <li data-id="2">
             <img src="/images/baterias.svg" alt="Pilhas e Baterias">
             <span>Pilhas e Baterias</span>
           </li>
