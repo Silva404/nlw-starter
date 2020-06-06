@@ -18,18 +18,19 @@
     {% include 'partials/back-home.html'%}
 
     <main>
-      <h4>
-        <strong>2 pontos</strong> encontrados
-      </h4>
 
-      <div class="cards">
+      {% if total > 0%}
 
-        {% for place in places %}
+        <h4>
+          <strong>{{ total }} pontos</strong> encontrados
+        </h4>
+
+        <div class="cards">
+
+          {% for place in places %}
 
           <div class="card">
-            <img
-              src="{{ place.image }}"
-              alt="{{ place.name }}">
+            <img src="{{ place.image }}" alt="{{ place.name }}">
             <h1>{{ place.name }}</h1>
             <h3>{{ place.items }}</h3>
             <p>
@@ -39,8 +40,12 @@
             </p>
           </div>
 
-        {% endfor %}
-      </div>
+          {% endfor %}
+        </div>
+        {%else%}
+        <h4><strong>Nenhum</strong> local encontrados/h4>
+
+      {% endif %}
 
     </main>
 

@@ -41,11 +41,11 @@ server.get('/search-result', (req, res) => {
     if (err) {
       console.log(err)
     }
-    console.log('olha aqui mah')
-    console.log(rows)
+
+    const total = rows.length
 
     //mostrar a página html com os dados do db
-    return res.render('search-result.html', { places: rows })
+    return res.render('search-result.html', { places: rows, total: total })
   })
 
 })

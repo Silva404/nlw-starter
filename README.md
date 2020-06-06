@@ -2,7 +2,7 @@ Ferramentas novas apredidas durante esse "mini-bootcamp"
 
 
 -- <strong>FRONTEND</strong>
-Nunjucks(oferecer ferramentas de compilação de html pra deixar o html mais enxuto e reaproveitar código sem reenscrever)
+Nunjucks(oferecer ferramentas de compilação de html pra deixar o html mais enxuto e reaproveitar código sem reenscrever) => oferece um template engine
 
 -- BACKEND
 // Ligando o servidor com Express
