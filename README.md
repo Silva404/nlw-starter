@@ -14,3 +14,11 @@ Usando a dependência EXPRESS pra facilitar o trabalho de ligar o servidor
 // Criando um banco de dados com SQL
 Usando o Sqlite3 como precedência para criar tabelas SQL
 Tabelas interligadas por ID
+
+
+
+// CARALHOO VIADO
+ELE PEGOU e criou um banco de dados e adicionou valores
+após isso deixou armazeado e trouxe esses dados pro servidor
+e implementou esses dados a página html
+ai a página html com os nunjucks pode acessar cada um dos dados, cada dado é um objeto com inúmeras propriedades e podem ser acessadas individualmente

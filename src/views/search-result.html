@@ -28,14 +28,14 @@
 
           <div class="card">
             <img
-              src="{{ place }}"
-              alt="Colectoria">
-            <h1>Colectoria</h1>
-            <h3>Resíduos Eletrônicos, Lâmpadas</h3>
+              src="{{ place.image }}"
+              alt="{{ place.name }}">
+            <h1>{{ place.name }}</h1>
+            <h3>{{ place.items }}</h3>
             <p>
-              Rio do Sul, Santa catarina <br>
-              Guilherme Gemballa, Jardim América <br>
-              N° 260
+              {{ place.city }}, {{ place.state }} <br>
+              {{ place.address }} <br>
+              {{ place.address2 }}
             </p>
           </div>
 
