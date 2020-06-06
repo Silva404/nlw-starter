@@ -24,31 +24,22 @@
 
       <div class="cards">
 
-        <div class="card">
-          <img
-            src="https://images.unsplash.com/photo-1542739674-b449a8938b59?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"
-            alt="Colectoria">
-          <h1>Colectoria</h1>
-          <h3>Resíduos Eletrônicos, Lâmpadas</h3>
-          <p>
-            Rio do Sul, Santa catarina <br>
-            Guilherme Gemballa, Jardim América <br>
-            N° 260
-          </p>
-        </div>
+        {% for place in places %}
 
-        <div class="card">
-          <img
-            src="https://images.unsplash.com/photo-1558583055-d7ac00b1adca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80"
-            alt="Papersider">
-          <h1>Papersider</h1>
-          <h3>Papéis e Papelão</h3>
-          <p>
-            Rio do Sul, Santa catarina <br>
-            Guilherme Gemballa, Jardim América <br>
-            N° 260
-          </p>
-        </div>
+          <div class="card">
+            <img
+              src="{{ place }}"
+              alt="Colectoria">
+            <h1>Colectoria</h1>
+            <h3>Resíduos Eletrônicos, Lâmpadas</h3>
+            <p>
+              Rio do Sul, Santa catarina <br>
+              Guilherme Gemballa, Jardim América <br>
+              N° 260
+            </p>
+          </div>
+
+        {% endfor %}
       </div>
 
     </main>

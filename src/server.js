@@ -1,6 +1,9 @@
 const express = require("express");
 const server = express();
 
+// pegando o banco de dados
+const db = require('./database/db.js')
+
 //deixando styles e script, a pasta public
 server.use(express.static('public'))
 
@@ -9,7 +12,7 @@ server.use(express.static('public'))
 const nunjucks = require('nunjucks');
 nunjucks.configure('src/views', {
   express: server,
-  noCache:true
+  noCache: true
 })
 
 
@@ -33,7 +36,18 @@ server.get('/create-point', (req, res) => {
 })
 
 server.get('/search-result', (req, res) => {
-  return res.render('search-result.html')
+  //pegar os dados do banco de dados pra transformar o html em fluido
+  db.all(`SELECT * FROM places`, function (err, rows) {
+    if (err) {
+      console.log(err)
+    }
+    console.log('olha aqui mah')
+    console.log(rows)
+
+    //mostrar a página html com os dados do db
+    return res.render('search-result.html', { places: rows })
+  })
+
 })
 
 //ligar o servidor
