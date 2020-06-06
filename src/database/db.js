@@ -11,11 +11,11 @@ db.serialize(() => {
   //1 criar uma tabela 
   db.run(`
       CREATE TABLE IF NOT EXISTS places (
-        id INTENGER PRIMARY KEY AUTOINCREMENT,
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
         image TEXT,
         name TEXT,
         address TEXT,
-        adress2 TEXT,
+        address2 TEXT,
         state TEXT,
         city TEXT,
         items TEXT
@@ -28,8 +28,8 @@ db.serialize(() => {
       INSERT INTO places (
         image,
         name,
-        adress,
-        adress2,
+        address,
+        address2,
         state,
         city,
         items
@@ -37,7 +37,25 @@ db.serialize(() => {
         ?,?,?,?,?,?,?
       );
 `
-  db.run(query, )
+  const values = [
+    'https://images.unsplash.com/photo-1542739674-b449a8938b59?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80',
+    'Colectoria',
+    'Guilherme Gemballa, Jardim América',
+    'N° 260',
+    'Santa catarina',
+    'Rio do Sul',
+    'Resíduos Eletrônicos, Lâmpadas'
+  ]
+
+  function afterInsertData(err) {
+    if(err){
+      return console.log(err)
+    } 
+    console.log('Cadastrado com sucesso')
+    console.log(this)
+  }
+
+  db.run(query, values, afterInsertData)
 
   // 3 consultar os dados
 
@@ -45,4 +63,3 @@ db.serialize(() => {
   // 4 deletar um dado
   // tentar adicionar isso ao site, para que quem colocou o anuncio, possa também removelo
 })
-//parei em 29:50
