@@ -73,15 +73,15 @@ module.exports = db
 //   })
 
 
-//   // 4 deletar um dado
-//   // tentar adicionar isso ao site, para que quem colocou o anuncio, possa também removelo
-//   // ou caso tenha colocado algum dado errado e queira alteralo
-//   // db.run(`DELETE  FROM places WHERE id = ?`, [1], function (err) {
-//   //   if (err) {
-//   //     return console.log(err)
-//   //   }
-//   //   console.log('Dados deletado com sucesso')
-//   // })
+  // 4 deletar um dado
+  // tentar adicionar isso ao site, para que quem colocou o anuncio, possa também removelo
+  // ou caso tenha colocado algum dado errado e queira alteralo
+  // db.run(`DELETE  FROM places WHERE id = ?`, [3], function (err) {
+  //   if (err) {
+  //     return console.log(err)
+  //   }
+  //   console.log('Dados deletado com sucesso')
+  // })
 
 
 // })
