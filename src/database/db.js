@@ -9,18 +9,24 @@ db.serialize(() => {
   //comandos SQL
   //1 criar uma tabela 
   db.run(`
-  CREATE TABLE IF NOT EXISTS places (
-    
+      CREATE TABLE IF NOT EXISTS places (
+        id INTENGER PRIMARY KEY AUTOINCREMENT,
+        image TEXT,
+        address TEXT,
+        adress2 TEXT,
+        state TEXT,
+        city TEXT,
+        items TEXT
   );
   `)
 
 
-  //2 inserir dados na tabela
+  // 2 inserir dados na tabela
 
 
-  //3 consultar os dados
+  // 3 consultar os dados
 
 
-  //4 deletar um dado
-  //tentar adicionar isso ao site, para que quem colocou o anuncio, possa também removelo
+  // 4 deletar um dado
+  // tentar adicionar isso ao site, para que quem colocou o anuncio, possa também removelo
 })
