@@ -7,6 +7,8 @@ const db = require('./database/db.js')
 //deixando styles e script, a pasta public
 server.use(express.static('public'))
 
+//habilitar o req.body
+server.use(express.urlencoded({ extended: true }))
 
 //utilizando o template engine
 const nunjucks = require('nunjucks');
@@ -32,8 +34,50 @@ server.get('/', (req, res) => {
 })
 
 server.get('/create-point', (req, res) => {
+  // req.query : querry strings da url
+  // console.log(req.query)
+
   return res.render('create-point.html')
+
 })
+
+server.post('/savepoint', (req, res) => {
+  // console.log(req.body)
+
+  // return res.send('eaea')
+  // 2 inserir dados na tabela
+  const query = `
+      INSERT INTO places (
+        image,
+        name,
+        address,
+        address2,
+        state,
+        city,
+        items
+      ) VALUES (
+        ?,?,?,?,?,?,?
+      );
+`
+  const values = [
+    req.body.image,
+    
+  ]
+
+  function afterInsertData(err) {
+    if (err) {
+      return console.log(err)
+    }
+    console.log('Cadastrado com sucesso')
+    console.log(this)
+  }
+
+
+  //não vou mais usar, ele iria inserir os dados na tabela mas são valores estáticos
+  //name.run é pra rodar o dado
+  db.run(query, values, afterInsertData)
+})
+
 
 server.get('/search-result', (req, res) => {
   //pegar os dados do banco de dados pra transformar o html em fluido

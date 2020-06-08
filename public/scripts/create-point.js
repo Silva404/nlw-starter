@@ -62,7 +62,7 @@ function handleSelectedItem(event) {
   itemLi.classList.toggle('selected');
   //pegando o id de cada item pelo seu dataX
   const itemId = itemLi.dataset.id;
-
+  console.log('item id: ', itemId)
 
   //verificar quais tems selecionados e pegar cada um
   const alreadySelected = selectedItems.findIndex(item => {
@@ -82,5 +82,7 @@ function handleSelectedItem(event) {
   } else {
     selectedItems.push(itemId);
   }
+  console.log('itens selecionados: ', selectedItems)
+
   collecetdItems.value = selectedItems;
 } //reassistir dos 35 - 54min;
