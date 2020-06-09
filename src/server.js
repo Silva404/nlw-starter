@@ -37,7 +37,7 @@ server.get('/create-point', (req, res) => {
   // req.query : querry strings da url
   // console.log(req.query)
 
-  return res.render('create-point.html', {saved: true})
+  return res.render('create-point.html' )
 })
 
 server.post('/savepoint', (req, res) => {
@@ -84,8 +84,15 @@ server.post('/savepoint', (req, res) => {
 
 
 server.get('/search-result', (req, res) => {
+
+  const search = req.query.search
+  // if(search == '') {
+  //   //pesquisa vazia - mostrar tudo
+  //   return res.render('search-result.html', { total: 0 })
+  // } 
+
   //pegar os dados do banco de dados pra transformar o html em fluido
-  db.all(`SELECT * FROM places`, function (err, rows) {
+  db.all(`SELECT * FROM places WHERE city LIKE '%${search}%'`, function (err, rows)  {
     if (err) {
       console.log(err)
     }
