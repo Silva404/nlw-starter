@@ -37,15 +37,13 @@ server.get('/create-point', (req, res) => {
   // req.query : querry strings da url
   // console.log(req.query)
 
-  return res.render('create-point.html')
-
+  return res.render('create-point.html', {saved: true})
 })
 
 server.post('/savepoint', (req, res) => {
   // console.log(req.body)
 
-  // return res.send('eaea')
-  // 2 inserir dados na tabela
+  // inserir dados na tabela
   const query = `
       INSERT INTO places (
         image,
@@ -61,19 +59,25 @@ server.post('/savepoint', (req, res) => {
 `
   const values = [
     req.body.image,
-    
+    req.body.name,
+    req.body.address,
+    req.body.address2,
+    req.body.state,
+    req.body.city,  
+    req.body.items
   ]
 
   function afterInsertData(err) {
     if (err) {
-      return console.log(err)
+      console.log(err)
+      return res.send('Erro no cadastro!')
     }
     console.log('Cadastrado com sucesso')
     console.log(this)
+
+    return res.render('create-point.html', { saved: true})
   }
 
-
-  //não vou mais usar, ele iria inserir os dados na tabela mas são valores estáticos
   //name.run é pra rodar o dado
   db.run(query, values, afterInsertData)
 })

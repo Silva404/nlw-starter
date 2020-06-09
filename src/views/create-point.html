@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@300;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles/main.css">
   <link rel="stylesheet" href="/styles/create-point.css">
+  <link rel="stylesheet" href="/styles/modal.css">
 
   <link rel="stylesheet" href="/styles/responsive.css">
   <title>Ponto de coleta</title>
@@ -114,7 +115,16 @@
 
       <button type="submit">Cadastrar ponto de coleta</button>
     </form>
+
+
+
+
   </section>
+
+  {% if saved %}
+   {%include 'partials/point-created.html'%}
+  {% endif %}
+
 
   <script src="/scripts/create-point.js"></script>
 </body>
